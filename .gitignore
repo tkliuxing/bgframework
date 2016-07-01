@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Custom Project ignore files
+bgframework/static/bower

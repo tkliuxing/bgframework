@@ -1,0 +1,83 @@
+{% load i18n assets static sekizai_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>{% render_block "beforetitle" %}{{ APP_NAME|default:"Background Framework" }}-Manager Center{% render_block "aftertitle" %}</title>
+    {% assets "appframework_css" %}
+      <link rel="stylesheet" href="{{ ASSET_URL }}" media="screen" charset="utf-8">
+    {% endassets %}
+    {% render_block "css" %}
+    <script>
+      bxc = {};
+      bxc.settings = {};
+      bxc.settings.sidebar_collapsed = {{ SIDEBAR_COLLAPSED|default:'true' }};
+      bxc.settings.sidebar_collapsed_url = '{% url 'sidebar_collapsed' %}';
+    </script>
+  </head>
+  <body class="skin-1">
+    <div class="navbar navbar-default">
+      <div class="navbar-container">
+        <div class="navbar-header pull-left">
+          <a href="#" class="navbar-brand">
+            <small><i class="fa fa-coffee"></i> {% trans "不喜处" %}</small>
+          </a>
+        </div>
+        <div class="navbar-header pull-right">
+          <ul class="nav ace-nav">
+            <li class="light-blue">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                <img src="{% static 'twitter-avatar-minion.jpg' %}" class="nav-user-photo">
+                <span class="user-info">
+                  <small>欢迎光临,</small>
+                  {{user.username}}</span>
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                <li>
+                  <a href="{% url 'logout' %}"><i class="fa fa-off"></i>退出</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="main-container-inner">
+        <a id="menu-toggler" href="javascript:;" class="menu-toggler">
+          <span class="menu-text"></span>
+        </a>
+        <div id="sidebar" class="sidebar{% if SIDEBAR_COLLAPSED == 'true' %} menu-min{% endif %}">
+          <ul class="nav nav-list leftnav">{% render_block "leftnav" %}</ul>
+          <div id="sidebar-collapse" class="sidebar-collapse">
+            <i data-icon1="fa fa-angle-double-left" data-icon2="fa fa-angle-double-right" class="{% if SIDEBAR_COLLAPSED == 'true' %}fa fa-angle-double-right{% else %}fa fa-angle-double-left{% endif %}"></i>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+						<ul class="breadcrumb">
+							<li>
+								<i class="fa fa-home home-icon"></i>
+								<a href="/">首页</a>
+							</li>
+              {% block app_name %}
+							<li class="active">APP</li>
+              {% endblock %}
+						</ul><!-- .breadcrumb -->
+					</div>
+          {% block content %}{% endblock %}
+        </div>
+        {% include "addons.html" %}
+      </div>
+    </div>
+    {% assets "bgframework_js" %}
+      <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {% block js %}{% endblock js %}
+  </body>
+</html>
