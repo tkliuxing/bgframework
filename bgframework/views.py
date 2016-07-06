@@ -16,14 +16,6 @@ from django import forms
 from .ajax import ajax_success
 
 
-@login_required
-def index(request):
-    """
-    Redirect to homepage.
-    """
-    return redirect('user_list')
-
-
 @login_required()
 @permission_required(['auth:add_user'])
 def sidebar_collapsed(request):
@@ -77,7 +69,7 @@ class MultipleDeleteView(
 def login(request):
     if request.user.is_authenticated():
         return redirect('index')
-    return auth_login(request, template_name='login.html')
+    return auth_login(request, template_name='bgframework/login.html')
 
 
 def logout(request):
@@ -85,4 +77,4 @@ def logout(request):
 
 
 def logout_after(request):
-    return render(request, 'logout.html', {})
+    return render(request, 'bgframework/logout.html', {})

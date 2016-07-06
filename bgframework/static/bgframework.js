@@ -108,11 +108,4 @@
 		url_obj['level'] = alarm_level;
 		$(obj).attr("href", genurlquerystring(url_obj));
 	});
-    // ------- App feauture -------
-    $("#sidebar-collapse").on('click', function() {
-        c = $("#sidebar").hasClass("menu-min");
-        $.post(window.bxc.settings.sidebar_collapsed_url, {sidebar_collapsed: !c}, function(data){
-            console.log("sidebar_collapsed success");
-        });
-    });
 })(jQuery);

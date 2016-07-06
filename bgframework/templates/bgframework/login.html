@@ -5,9 +5,7 @@
 <head>
   <title>{{ APP_NAME|default:"AppFramework" }} - {% trans 'Manager Center' %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
-  {% assets "css_appframework" %}
-    <link rel="stylesheet" href="{{ ASSET_URL }}" media="screen" charset="utf-8">
-  {% endassets %}
+  <link rel="stylesheet" href="{% static 'bgframework/packed.css' %}?4ef0752f" media="screen" charset="utf-8">
 </head>
 
 <body class="login-layout">
@@ -36,7 +34,7 @@
                   </h4>{% endif %}
                     <div class="space-6"></div>
                     <form action="." method="POST"> {% csrf_token %}
-                      <input type="hidden" name="next" value="{% url 'index' %}">
+                      <input type="hidden" name="next" value="/">
                       <fieldset>
                         <label class="block clearfix"><span class="block input-icon input-icon-right">
                               <input type="text" name="username" value="{{ form.username.value|default:'' }}"
@@ -156,9 +154,7 @@
       </div>
     </div>
   </div>
-  {% assets "js_appframework" %}
-  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-  {% endassets %}
+  <script type="text/javascript" src="{% static 'bgframework/packed.js' %}?ff87fd57"></script>
   <script>
     function show_box(id) {
       jQuery('.widget-box.visible').removeClass('visible');
