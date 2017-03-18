@@ -27,7 +27,7 @@ config = {
     'license': 'Apache License 2.0',
     'version': __version__,
     'install_requires': [
-        'Django>=1.7',
+        'Django<1.10',
         'django-braces==1.9.0',
         'django-sekizai==0.9.0',
         'django-bootstrap-form-tkliuxing==3.2.1',
