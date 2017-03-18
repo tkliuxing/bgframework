@@ -94,4 +94,4 @@ def load(modname, verbose=False, failfast=False):
 
 
 def load_bgframework_addons():
-    load('addons', verbose=False, failfast=False)
+    load('bgf_addons', verbose=False, failfast=False)
