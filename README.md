@@ -22,8 +22,8 @@ INSTALLED_APPS = [
 4. Migrate database
 5. Put the following code into your 'root url file':
 ```python
-from ttadmin.add_ons import get_addons_urls, load_ttadmin_addons
-load_ttadmin_addons()
+from bgframework.add_ons import get_addons_urls, load_bgframework_addons
+load_bgframework_addons()
 
 urlpatterns = [
 	# ...

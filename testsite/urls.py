@@ -17,10 +17,10 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from bgframework.add_ons import get_addons_urls, load_wxrbot_addons
+from bgframework.add_ons import get_addons_urls, load_bgframework_addons
 from bgframework import views as appviews
 
-load_wxrbot_addons()
+load_bgframework_addons()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
