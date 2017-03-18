@@ -93,5 +93,5 @@ def load(modname, verbose=False, failfast=False):
         get_module(app, modname, verbose, failfast)
 
 
-def load_wxrbot_addons():
+def load_bgframework_addons():
     load('addons', verbose=False, failfast=False)
