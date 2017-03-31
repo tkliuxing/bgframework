@@ -1,1 +1,2 @@
 recursive-include bgframework/templates/bgframework *.html
+exclude testsite *

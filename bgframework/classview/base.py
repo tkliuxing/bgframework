@@ -13,6 +13,9 @@ class MultipleDeleteView(
     DeletionMixin,
     TemplateResponseMixin,
     BaseListView):
+    """
+    本视图提供了删除多个对象时的便利方法，在需要从列表中选择几个对象删除时可继承本类
+    """
     http_method_names = ['post', 'get']
     allow_empty = False
     object_list_kwarg = 'obj'

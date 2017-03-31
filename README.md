@@ -26,11 +26,12 @@ from bgframework.add_ons import get_addons_urls, load_bgframework_addons
 load_bgframework_addons()
 
 urlpatterns = [
-	# ...
+    # ...
 ]
 
 urlpatterns += [
-	url(r'^addons/', include(get_addons_urls(), namespace="addons")),
+    url(r'^addons/', include(get_addons_urls(), namespace="addons")),
+    url(r'', include('bgframework.urls')),
 ]
 ```
 6. Create `bgf_addons.py` file at your Django apps:
