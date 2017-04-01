@@ -36,7 +36,8 @@ config = {
     'setup_requires': [
         'setuptools_scm'
     ],
-    'packages': find_packages(),
+    'package_dir': {'':'src'},
+    'packages': find_packages("src"),
     'include_package_data': True,
     'platforms': ['OS Independent'],
     'scripts': [],
