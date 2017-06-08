@@ -1,3 +1,4 @@
 recursive-include src/bgframework/templates/bgframework *.html
+recursive-include src/bgframework/static *.html *.js *.css *.woff *.woff2
 exclude testsite *
 exclude docs *

@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from bgframework import __version__
+from src.bgframework import __version__
 # from Cython.Build import cythonize
 
 CLASSIFIERS = [

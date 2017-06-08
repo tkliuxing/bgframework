@@ -1,11 +1,14 @@
 # -*- encoding:utf-8 -*-
 from .add_ons import get_addons
 from django.conf import settings
+from . import settings as local_settings
 
 
 def get_settings(conf_name):
     if hasattr(settings, conf_name):
         return {conf_name: getattr(settings, conf_name)}
+    if hasattr(local_settings, conf_name):
+        return {conf_name: getattr(local_settings, conf_name)}
     return {}
 
 

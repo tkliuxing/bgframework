@@ -19,8 +19,23 @@ INSTALLED_APPS = [
     # ... your apps
 ]
 ```
-4. Migrate database
-5. Put the following code into your 'root url file':
+4. Add the bgframework context processor:
+```
+TEMPLATES = [
+    {
+        ...
+        'OPTIONS': {
+            'context_processors': [
+                ...
+                'bgframework.context_processors.context',
+                ...
+            ],
+        },
+    },
+]
+```
+5. Migrate database
+6. Put the following code into your 'root url file':
 ```python
 from bgframework.add_ons import get_addons_urls, load_bgframework_addons
 load_bgframework_addons()
@@ -34,41 +49,30 @@ urlpatterns += [
     url(r'', include('bgframework.urls')),
 ]
 ```
-6. Create `bgf_addons.py` file at your Django apps:
-```python
-from bgframework import add_ons
-from django.conf.urls import url
-from django.utils.translation import ugettext_lazy as _
-from .views import (
-    YourViews01,
-    YourViews02,
-)
+7. Use `python manage.py startbgfapp YOUR_APP_NAME` create your apps.
+8. Modify `bgf_addons.py` at your app folder.
 
-class MyAppAddon(add_ons.BaseAddon):
+## Available Settings
+1. `APP_NAME` 
+    The Site Title of your bgframework interface.
+2. `AUTHOR`
+    The Site author in login page.
+3. `CAN_SIGNUP`
 
-    # Add-ons url, it look like: 'http://your domain/addons/myapp/...'
-    urlpatterns = [
-        url(r'myapp/view01/$', YourViews01.as_view(), name="myapp_view01"),
-        url(r'myapp/view02/$', YourViews02.as_view(), name="myapp_view02"),
-    ]
-    # Top navbar display name
-    name = _('MyAppName')
-    # Second level navbar
-    navs = {
-        _('MyAppNameNav01'): {                  # display name
-            "url_name":"addons:myapp_view01",   # target url
-            "sort": 4,                          # sequence number 
-            "nav_id":"nav-myapp_view01",        # navbar html element id
-            "iconclass":"icon-male",            # icon style
-            "group_required":"admin manager"    # required permissions
-        },
-        _('MyAppNameNav02'): {
-            "url_name":"addons:myapp_view02",
-            "sort": 5,
-            "nav_id":"nav-myapp_view02",
-            "iconclass":"icon-reorder",
-            "group_required":"customer service"
-        },
-    }
-add_ons.register(MyAppAddon)
+## Templates
 ```
+templates
+ |- bgframework
+    |- addons.html
+    |- base.html
+    |- edit_base.html
+    |- login.html
+    |- logout.html
+    |- pagination.html
+```
+
+### base.html
+
+* Blocks: `content`, `app_name` and `js`.
+* Sekizai block: `beforetitle`, `aftertitle` and `css`.
+  You can use sekizai template tag like `{% add_to_block 'css' %}` before `{% load sekizai_tags %}`.
