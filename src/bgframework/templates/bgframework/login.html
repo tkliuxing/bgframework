@@ -63,10 +63,13 @@
                         class="icon-google-plus"></i></a>
                     </div>{% endif %}
                   </div>
+                  {% if CAN_RESET_PASSWORD or CAN_SIGNUP %}
                   <div class="toolbar clearfix">
+                    {% if CAN_RESET_PASSWORD %}
                     <div><a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link"><i
                       class="icon-arrow-left"></i>&nbsp;{% trans "我忘了密码" %}</a>
                     </div>
+                    {% endif %}
                     {% if CAN_SIGNUP %}
                     <div>
                       <a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
@@ -76,6 +79,7 @@
                     </div>
                     {% endif %}
                   </div>
+                  {% endif %}
                 </div>
               </div>
               <div id="forgot-box" class="forgot-box widget-box no-border">

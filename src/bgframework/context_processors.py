@@ -17,5 +17,6 @@ def context(request):
     app_context.update(get_settings('APP_NAME'))
     app_context.update(get_settings('AUTHOR'))
     app_context.update(get_settings('CAN_SIGNUP'))
+    app_context.update(get_settings('CAN_RESET_PASSWORD'))
     app_context.update({'SIDEBAR_COLLAPSED': request.session.get('sidebar_collapsed', 'false')})
     return app_context
