@@ -20,12 +20,12 @@ css = Bundle(
     # 'ace/ace.css',
     # 'ace/ace-rtl.min.css',
     # 'ace/ace-skins.css',
-    'bower/tkliuxing-ace/css/ace.min.css',
-    'bower/tkliuxing-ace/css/ace-rtl.min.css',
-    'bower/tkliuxing-ace/css/ace-skins.min.css',
+    'bower/tkliuxing-ace/css/ace.css',
+    'bower/tkliuxing-ace/css/ace-rtl.css',
+    'bower/tkliuxing-ace/css/ace-skins.css',
     'bower/font-awesome/css/font-awesome.min.css',
     'base.css',
-    filters='cssrewrite', output='bgframework/packed.css'
+    filters='cssmin,cssrewrite', output='bgframework/packed.css'
 )
 
 register('bgframework_js', js)

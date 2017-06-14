@@ -90,3 +90,4 @@ ENV/
 
 # Custom Project ignore files
 src/bgframework/static/bower
+static
