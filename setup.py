@@ -27,16 +27,16 @@ config = {
     'license': 'Apache License 2.0',
     'version': __version__,
     'install_requires': [
-        'Django<1.10',
-        'django-braces==1.9.0',
-        'django-sekizai==0.9.0',
-        'django-bootstrap-form-tkliuxing==3.2.1',
+        'Django',
+        'django-braces',
+        'django-sekizai',
+        'django-bootstrap-form-tkliuxing',
         'six==1.10.0',
     ],
     'setup_requires': [
         'setuptools_scm'
     ],
-    'package_dir': {'':'src'},
+    'package_dir': {'': 'src'},
     'packages': find_packages("src"),
     'include_package_data': True,
     'platforms': ['OS Independent'],
