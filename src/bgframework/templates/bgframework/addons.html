@@ -18,7 +18,7 @@
   {% addtoblock "leftnav" %}
   {% for nav in addon.navs %}
     {% if nav.subnav %}
-    <li>
+    <li id="{{nav.nav_id}}">
       <a href="#" class="dropdown-toggle">
         <i class="menu-icon {{nav.iconclass|default:addon.iconclass}}"></i>
         <span class="menu-text">{{nav.nav_name}}</span>
@@ -27,7 +27,7 @@
       <ul class="submenu" style="display: none;">
       {% for sub in nav.subnav %}
         {% if sub.static %}
-        <li>
+        <li id="{{nav.nav_id}}">
           <a target="_blank" href="{{ sub.url }}">
             <i class="menu-icon fa fa-angle-double-right"></i>
             {{sub.nav_name}}
@@ -46,7 +46,7 @@
     </li>
     {% else %}
       {% if nav.static %}
-      <li>
+      <li id="{{nav.nav_id}}">
         <a target="_blank" href="{{ nav.url }}">
           <i class="menu-icon {{nav.iconclass|default:addon.iconclass}}"></i>
           <span class="menu-text">{{nav.nav_name}}</span>
