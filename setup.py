@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
-from src.bgframework import __version__
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+from bgframework import __version__
 # from Cython.Build import cythonize
 
 CLASSIFIERS = [
@@ -24,7 +26,7 @@ config = {
     'url': 'https://github.com/tkliuxing/bgframework',
     'author': 'Ronald White',
     'author_email': 'ouyanghongyu@gmail.com',
-    'license': 'Apache License 2.0',
+    'license': 'MIT License',
     'version': __version__,
     'install_requires': [
         'Django',
