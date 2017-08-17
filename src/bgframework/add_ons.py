@@ -9,7 +9,6 @@ except ImportError:
     # Python 2.6 fallback
     from django.utils.importlib import import_module
 
-from six import string_types
 from django.conf import settings
 from django.conf.urls import include, url
 
@@ -29,6 +28,7 @@ class BaseAddon(object):
         # Like this: _('Users'): {"url_name":"wxrbot:user_list", "iconclass": "fa fa-user", "nav_id":"nav-user"},
     }
     sort_id = 0
+
     class RenderMedia:
         js = []
         css = {}
@@ -65,7 +65,7 @@ def get_addons_urls():
     return urlpatterns
 
 
-def get_module(app, modname, verbose, failfast):
+def get_module(app, modname, verbose=False, failfast=False, success=True):
     """
     Internal function to load a module from a single app.
     """
@@ -78,20 +78,20 @@ def get_module(app, modname, verbose, failfast):
         elif verbose:
             print("Could not load %r from %r: %s" % (modname, app, e))
         return None
-    if verbose:
+    if success or verbose:
         print("Loaded %r from %r" % (modname, app))
     return module
 
 
-def load(modname, verbose=False, failfast=False):
+def load(modname, verbose, failfast, success):
     """
     Loads all modules with name 'modname' from all installed apps.
     If verbose is True, debug information will be printed to stdout.
     If failfast is True, import errors will not be surpressed.
     """
     for app in settings.INSTALLED_APPS:
-        get_module(app, modname, verbose, failfast)
+        get_module(app, modname, verbose, failfast, success)
 
 
-def load_bgframework_addons():
-    load('bgf_addons', verbose=False, failfast=False)
+def load_bgframework_addons(verbose=False, failfast=False, success=True):
+    load('bgf_addons', verbose, failfast, success)
