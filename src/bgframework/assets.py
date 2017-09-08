@@ -2,15 +2,11 @@ from django_assets import Bundle, register
 
 js = Bundle(
     'bower/jquery/dist/jquery.min.js',
-    # 'bootstrap/js/bootstrap.min.js',
     'bower/bootstrap/dist/js/bootstrap.min.js',
     'ajaxcsrftoken.js',
-    # 'ace/ace.min.js',
-    # 'ace/ace-elements.min.js',
-    # 'ace/ace-extra.min.js',
-    'bower/tkliuxing-ace/js/ace.min.js',
-    'bower/tkliuxing-ace/js/ace-elements.min.js',
-    'bower/tkliuxing-ace/js/ace-extra.min.js',
+    'ace2/ace.js',
+    'ace2/ace-elements.js',
+    'ace2/ace-extra.js',
     'bgframework.js',
     filters='jsmin', output='bgframework/packed.js'
 )
@@ -22,9 +18,10 @@ css_base = Bundle(
 )
 
 css_ace = Bundle(
-    'bower/tkliuxing-ace/css/ace.css',
-    'bower/tkliuxing-ace/css/ace-rtl.css',
-    'bower/tkliuxing-ace/css/ace-skins.css',
+    'ace2/ace.css',
+    'ace2/ace-part2.css',
+    'ace2/ace-skins.css',
+    'ace2/ace-rtl.css',
     filters='cssmin,cssrewrite', output='bgframework/packed-ace.css'
 )
 
