@@ -74,7 +74,10 @@ def get_module(app, modname, verbose=False, failfast=False, success=True):
         module = import_module(module_name)
     except ImportError as e:
         if failfast:
-            raise e
+            if 'No module named' in str(e):
+                pass
+            else:
+                raise e
         elif verbose:
             print("Could not load %r from %r: %s" % (modname, app, e))
         return None

@@ -1,3 +1,4 @@
+{% if nav.require_group and nav.require_group in groups or not nav.require_group %}
 <li id="{{nav.nav_id}}">
 {% if nav.subnav %}
   <a href="#" class="dropdown-toggle">
@@ -16,8 +17,8 @@
   </ul>
 {% else %}
   <a href="{% url nav.url_name %}">
-    {# <i class="menu-icon {{nav.iconclass|default:addon.iconclass}}"></i> #}
     <span class="menu-text">{{nav.nav_name}}</span>
   </a>
 {% endif %}
 </li>
+{% endif %}

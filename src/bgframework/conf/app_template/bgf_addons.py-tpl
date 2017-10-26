@@ -23,15 +23,23 @@ class {{ camel_case_app_name }}Addon(add_ons.BaseAddon):
         #     "url_name":"addons:myapp_view01",   # target url
         #     "sort": 4,                          # sequence number 
         #     "nav_id":"nav-myapp_view01",        # navbar html element id
-        #     "iconclass":"icon-male",            # icon style
-        #     "group_required":"admin manager"    # required permissions
+        #     "iconclass":"fa fa-male",            # icon style
+        #     "require_group":"admin",            # required django auth groups, optional
+        #     "subnav": [
+        #         {
+        #              "nav_name": _('MyAppNameNav01Sub01'),
+        #              "url_name":"addons:myapp_viewsub01",
+        #              "nav_id":"nav-myapp_view01",
+        #              "require_group":"admin",
+        #         }
+        #     ]
         # },
         # {   "nav_name": _('MyAppNameNav02'),
         #     "url_name":"addons:myapp_view02",
         #     "sort": 5,
         #     "nav_id":"nav-myapp_view02",
-        #     "iconclass":"icon-reorder",
-        #     "group_required":"customer service"
+        #     "iconclass":"fa fa-reorder",
+        #     "require_group":"customer"
         # },
     ]
 # add_ons.register({{ camel_case_app_name }}Addon)
