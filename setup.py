@@ -29,7 +29,6 @@ config = {
     'license': 'MIT License',
     'version': __version__,
     'install_requires': [
-        'Django',
         'django-braces',
         'django-sekizai',
         'django-bootstrap-form-tkliuxing',

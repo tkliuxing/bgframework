@@ -3,7 +3,7 @@
 <html lang="zh-hans">
 
 <head>
-  <title>{{ APP_NAME|default:"AppFramework" }} - {% trans 'Manager Center' %}</title>
+  <title>{{ APP_NAME|default:"AppFramework" }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="{% static 'bgframework/packed.css' %}?4ef0752f" media="screen" charset="utf-8">
 </head>
@@ -18,7 +18,7 @@
               <h1>
                 <i class="icon-leaf green"></i><span class="red">&nbsp;{{ APP_NAME|default:"AppFramework" }}</span>
               </h1>
-              {% if  AUTHOR %}<h4 class="blue"><span>&copy; {{ AUTHOR }}</span></h4>{% endif %}
+              {% if AUTHOR %}<h4 class="blue"><span>&copy; {{ AUTHOR }}</span></h4>{% endif %}
             </div>
             <div class="space-6"></div>
             <div class="position-relative">
